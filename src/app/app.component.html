@@ -1,0 +1,68 @@
+<mat-toolbar class="mat-elevation-z8">
+ 
+  <button
+    mat-icon-button
+    *ngIf="sidenav.mode === 'over'"
+    (click)="sidenav.toggle()"
+  >
+    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+  </button>
+  <mat-toolbar-row>
+    <button mat-button  (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
+  Curriculum Vitae
+</mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav  [(opened)]="opened"          #sidenav="matSidenav" class="mat-elevation-z8">
+    <img
+      class="avatar mat-elevation-z8"
+      src="../assets/image/photo.jpg"
+    />
+
+    <h4 class="name">Olfa Salem</h4>
+    <h4 class="name">Devops Engineer</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/home">
+      <mat-icon aria-hidden="false" aria-label="homeicon" fontIcon="home"></mat-icon>
+      <span>Home</span>
+    </button>
+    
+    <button mat-button class="menu-button" routerLink="/education">
+      <mat-icon>school</mat-icon>
+      <span>Education</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/experience">
+      <mat-icon>extension</mat-icon>
+      <span>Experience</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/competence">
+      <mat-icon>settings</mat-icon>
+      <span>Competence</span>
+    </button>
+    
+    
+    <mat-divider></mat-divider>
+
+    <button mat-button class="menu-button" routerLink="/langues">
+      <mat-icon>translate</mat-icon>
+      <span>Langues</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/loisirs">
+      <mat-icon>toys</mat-icon>
+      <span>Loisirs</span>
+    </button>
+    <button mat-button class="menu-button" routerLink="/contact">
+      <mat-icon>contact_mail</mat-icon>
+      <span>contact</span>
+    </button>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
